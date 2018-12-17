@@ -36,7 +36,25 @@ public class UsuarioDaoImpl implements UsuarioDAO{
             throw new RuntimeException("erro ao inserir usuario"+erro);
         }
     }
-
+    
+    @Override
+    public boolean findByName(String nome, String senha) {
+        String sql ="SELECT * FROM usuario WHERE nome = (?) AND senha = (?)";
+        
+        try{
+            pst = (PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1, nome);
+            pst.setString(2, senha);
+            pst.execute();
+            pst.close();
+            
+            return true;
+            
+        }catch(Exception erro){
+            throw new RuntimeException("erro ao inserir usuario"+erro);
+        }
+    }
+    
     @Override
     public boolean excluir(int valor) {
         String sql ="DELETE FROM produto WHERE codigo_produto = " +valor;
@@ -53,11 +71,6 @@ public class UsuarioDaoImpl implements UsuarioDAO{
 
     @Override
     public boolean editar(int valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean deletar(int valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
