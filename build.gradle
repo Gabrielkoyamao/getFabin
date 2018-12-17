@@ -1,0 +1,24 @@
+plugins {
+
+	id 'java'
+	id 'application'
+	id 'war'
+	id 'org.gretty' version '2.2.0'
+	
+}
+
+mainClassName = 'App'
+
+dependencies {	
+	testCompile 'junit:junit:4.12'
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+	compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '1.1.7'
+	compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '8.0.15'
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.0.7.Final'     
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.0.7.Final' 
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
+}
+
+repositories {
+	jcenter()	
+}
